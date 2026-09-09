@@ -44,15 +44,6 @@ function useTypewriter(words: string[], typeMs = 80, holdMs = 1400) {
   return text;
 }
 
-const floatingTech = [
-  { label: "Node.js", x: "8%", y: "22%", delay: 0 },
-  { label: "React", x: "82%", y: "16%", delay: 0.4 },
-  { label: "MySQL", x: "10%", y: "74%", delay: 0.8 },
-  { label: "Python", x: "86%", y: "70%", delay: 1.2 },
-  { label: "PHP", x: "70%", y: "88%", delay: 0.6 },
-  { label: "Kotlin", x: "22%", y: "90%", delay: 1.0 },
-];
-
 export function Hero() {
   const typed = useTypewriter(profile.roles);
 
@@ -65,23 +56,6 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-grid opacity-70" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_0%,color-mix(in_oklch,var(--accent-emerald)_14%,transparent),transparent_70%)]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background to-transparent" />
-
-      {/* Floating tech chips */}
-      {floatingTech.map((t) => (
-        <motion.span
-          key={t.label}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 + t.delay * 0.3, duration: 0.6 }}
-          className="pointer-events-none absolute hidden font-mono text-[11px] font-medium text-muted-foreground/70 md:block"
-          style={{ left: t.x, top: t.y }}
-        >
-          <span className="animate-float-slow inline-flex items-center rounded-full border border-border/60 bg-card/60 px-3 py-1 backdrop-blur">
-            <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-[var(--accent-emerald)]" />
-            {t.label}
-          </span>
-        </motion.span>
-      ))}
 
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center">
         {/* Left: copy */}

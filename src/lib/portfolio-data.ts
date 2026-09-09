@@ -233,7 +233,7 @@ export const projects: Project[] = [
     name: "FlowForm",
     tagline: "Configurable Workflow Automation Platform",
     category: "Full-Stack SaaS",
-    status: "live",
+    status: "shipped",
     year: "2025",
     accent: "emerald",
     featured: true,
@@ -245,7 +245,6 @@ export const projects: Project[] = [
       "Required-field validation, RBAC, CSRF protection, prepared statements, form duplication, employee management, and submission history views.",
       "DeepSeek-powered assistant generates editable form structures from natural-language descriptions, with validation and manual review before publish.",
     ],
-    demoUrl: "#",
     repoUrl: "https://github.com/Avinaash076",
   },
   {
@@ -317,6 +316,11 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
+  {
+    title: "AWS Cloud Quest: Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    focus: "Foundational cloud concepts, core AWS services, and cloud architecture basics",
+  },
   {
     title: "Google IT Automation with Python — Python for OS Interaction",
     issuer: "Google",
