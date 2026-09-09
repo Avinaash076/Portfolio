@@ -68,3 +68,26 @@ Stage Summary:
 - Content density up: real metrics inline-highlighted, spec-sheet data table, numbered highlights, marginal dates.
 - Mobile verified: dossier panel now stacks visibly, no overlaps.
 - Deployable to Vercel as-is (Next.js 16, SQLite via Prisma — note: contact form needs a persistent DB for prod; see deployment notes).
+
+---
+Task ID: 3
+Agent: main (Z.ai Code)
+Task: Make the contact backend production-ready for Vercel deployment (user will download source and deploy).
+
+Work Log:
+- Installed `resend` package (v6.26.0).
+- Created `src/lib/email.ts`: lazy-init Resend client, env-aware helpers (isEmailEnabled, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL), sendContactEmail() that formats a clean plaintext email with reply-to set to the submitter.
+- Rewrote `src/app/api/contact/route.ts`: dual-path — if RESEND_API_KEY is set, sends email via Resend (returns delivered:"email"); otherwise falls back to Prisma/SQLite persistence (delivered:"database"). Same zod validation, same response shape so the frontend doesn't change.
+- Created `.env.example` documenting DATABASE_URL, RESEND_API_KEY, CONTACT_TO_EMAIL, RESEND_FROM_EMAIL with inline comments.
+- Created `DEPLOY.md` with 4-step Vercel + Resend deployment guide (git push → import on Vercel → add env vars → redeploy), env var table, how-the-form-works matrix, and stack summary.
+- Verified end-to-end: lint clean, no RESEND_API_KEY in .env so DB fallback active. Browser form submission works, curl POST returns delivered:"database", DB count incremented to 5 messages.
+- Resend from-address defaults to onboarding@resend.com (Resend's shared sender) so the user needs ZERO domain verification to start receiving emails — just sign up, copy API key, add as env var.
+
+Stage Summary:
+- Contact form is now production-ready for Vercel: zero-config email via Resend, graceful DB fallback for dev/preview.
+- User can `git push` → import on Vercel → add 3 env vars → deploy. Documented in DEPLOY.md.
+- No frontend changes needed — the success/error states work identically for both backends.
+
+Unresolved / Notes:
+- For high-volume email or custom from-domain, user should verify their domain in Resend and set RESEND_FROM_EMAIL (documented in DEPLOY.md).
+- SQLite DB file is gitignored by default in Next.js; on Vercel the DB fallback is not persistent (serverless fs) — but with RESEND_API_KEY set, the DB path is never used in production.
