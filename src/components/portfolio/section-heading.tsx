@@ -9,45 +9,47 @@ export function SectionHeading({
   title,
   description,
   className,
-  align = "left",
 }: {
   num: string;
   eyebrow: string;
   title: string;
   description?: string;
   className?: string;
-  align?: "left" | "center";
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
-      className={cn(
-        "mb-12 flex flex-col gap-3",
-        align === "center" && "items-center text-center",
-        className
-      )}
-    >
-      <div
-        className={cn(
-          "inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground",
-          align === "center" && "justify-center"
-        )}
-      >
-        <span className="text-[var(--accent-emerald)]">{num}</span>
-        <span className="h-px w-8 bg-gradient-to-r from-[var(--accent-emerald)]/60 to-transparent" />
-        {eyebrow}
+    <div className={cn("mb-14", className)}>
+      {/* Top rule + section marker */}
+      <div className="rule-strong-t flex items-center justify-between pt-6">
+        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="text-signal">§ {num}</span>
+          <span>{eyebrow}</span>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
+          field notes
+        </span>
       </div>
-      <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+
+      <motion.h2
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="mt-8 max-w-3xl font-serif text-4xl font-light leading-[1.08] tracking-tight sm:text-5xl"
+      >
         {title}
-      </h2>
+      </motion.h2>
+
       {description && (
-        <p className="max-w-2xl text-pretty text-muted-foreground sm:text-base">
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.08, ease: "easeOut" }}
+          className="mt-5 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground"
+        >
           {description}
-        </p>
+        </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }

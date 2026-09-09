@@ -7,14 +7,10 @@ import { Projects } from "@/components/portfolio/projects";
 import { Education } from "@/components/portfolio/education";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
-import { CursorGlow } from "@/components/portfolio/cursor-glow";
-import { ScrollProgress } from "@/components/portfolio/scroll-progress";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-background">
-      <ScrollProgress />
-      <CursorGlow />
+    <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
 
       <main className="flex-1">

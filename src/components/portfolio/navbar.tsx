@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 import { navSections, profile } from "@/lib/portfolio-data";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
@@ -14,7 +12,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -25,7 +23,6 @@ export function Navbar() {
       .map((s) => document.getElementById(s.id))
       .filter(Boolean) as HTMLElement[];
     if (sections.length === 0) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,130 +41,86 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-        scrolled ? "py-2" : "py-4"
-      )}
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div
-          className={cn(
-            "flex items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 transition-all duration-300",
-            scrolled
-              ? "glass border-border/60 shadow-lg shadow-black/5"
-              : "border-transparent bg-transparent"
-          )}
-        >
-          {/* Logo */}
+    <header className="fixed inset-x-0 top-0 z-40">
+      <div
+        className={cn(
+          "rule-b transition-all duration-200",
+          scrolled ? "bg-background/90 backdrop-blur-sm" : "bg-background"
+        )}
+      >
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 sm:px-8">
+          {/* Mark */}
           <button
             onClick={() => go("home")}
-            className="group flex items-center gap-2.5"
+            className="group flex items-baseline gap-2"
             aria-label="Home"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--accent-emerald)]/40 bg-[var(--accent-emerald)]/10 text-[var(--accent-emerald)] transition-transform group-hover:scale-105">
-              <Terminal className="h-4.5 w-4.5" />
+            <span className="font-serif text-lg font-medium leading-none tracking-tight">
+              Avinaash<span className="text-signal">·</span>M
             </span>
-            <span className="hidden flex-col leading-none sm:flex">
-              <span className="font-mono text-sm font-semibold tracking-tight">
-                {profile.firstName}
-                <span className="text-[var(--accent-emerald)]">.</span>
-                {profile.lastName[0].toLowerCase()}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                full-stack dev
-              </span>
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+              / full-stack
             </span>
           </button>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {navSections.map((s) => (
               <button
                 key={s.id}
                 onClick={() => go(s.id)}
                 className={cn(
-                  "group relative rounded-lg px-3 py-1.5 font-mono text-xs transition-colors",
+                  "font-mono text-[11px] uppercase tracking-[0.15em] transition-colors",
                   active === s.id
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <span className="mr-1 text-[var(--accent-emerald)]/70">
-                  {s.num}
-                </span>
-                {s.label}
-                {active === s.id && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-x-2 -bottom-px h-px bg-gradient-to-r from-transparent via-[var(--accent-emerald)] to-transparent"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
+                <span className="text-signal/80">{s.num}</span>
+                <span className="ml-1.5">{s.label}</span>
               </button>
             ))}
           </nav>
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button
-              asChild
-              size="sm"
-              className="hidden rounded-full bg-[var(--accent-emerald)] text-[var(--primary-foreground)] hover:bg-[var(--accent-emerald)]/90 sm:inline-flex"
+            <button
+              className="hidden font-mono text-[11px] uppercase tracking-[0.15em] text-foreground underline decoration-signal decoration-2 underline-offset-4 transition-opacity hover:opacity-70 sm:block"
+              onClick={() => go("contact")}
             >
-              <a href="#contact">Let&apos;s talk</a>
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
+              Contact
+            </button>
+            <button
               className="lg:hidden"
               aria-label="Menu"
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            </button>
           </div>
         </div>
-
-        {/* Mobile menu */}
-        <AnimatePresence>
-          {open && (
-            <motion.nav
-              initial={{ opacity: 0, y: -8, height: 0 }}
-              animate={{ opacity: 1, y: 0, height: "auto" }}
-              exit={{ opacity: 0, y: -8, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden"
-            >
-              <div className="mt-2 grid gap-1 rounded-2xl border border-border/60 glass p-3">
-                {navSections.map((s) => (
-                  <button
-                    key={s.id}
-                    onClick={() => go(s.id)}
-                    className={cn(
-                      "flex items-center gap-3 rounded-lg px-3 py-2.5 text-left font-mono text-sm transition-colors",
-                      active === s.id
-                        ? "bg-[var(--accent-emerald)]/10 text-foreground"
-                        : "text-muted-foreground hover:bg-muted/60"
-                    )}
-                  >
-                    <span className="text-[var(--accent-emerald)]/70">
-                      {s.num}
-                    </span>
-                    {s.label}
-                  </button>
-                ))}
-                <Button
-                  asChild
-                  className="mt-1 rounded-xl bg-[var(--accent-emerald)] text-[var(--primary-foreground)]"
-                >
-                  <a href="#contact">Let&apos;s talk</a>
-                </Button>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Mobile sheet */}
+      {open && (
+        <div className="rule-b bg-background lg:hidden">
+          <nav className="mx-auto flex max-w-6xl flex-col px-5 py-2 sm:px-8">
+            {navSections.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => go(s.id)}
+                className={cn(
+                  "flex items-center gap-3 border-b border-[var(--hair)] py-3 text-left font-mono text-xs uppercase tracking-[0.15em] last:border-b-0",
+                  active === s.id ? "text-foreground" : "text-muted-foreground"
+                )}
+              >
+                <span className="text-signal/80">{s.num}</span>
+                {s.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -1,69 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  Award,
-  MapPin,
-  Calendar,
-  BadgeCheck,
-} from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { education, certifications } from "@/lib/portfolio-data";
 
 export function Education() {
   return (
-    <section id="education" className="relative scroll-mt-24 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="education" className="scroll-mt-14 px-5 py-24 sm:px-8 sm:py-32">
+      <div className="mx-auto max-w-6xl">
         <SectionHeading
           num="06"
-          eyebrow="education & certs"
-          title="Foundations & continuous learning."
-          description="A computer-science foundation backed by hands-on automation and DevOps certifications."
+          eyebrow="education"
+          title="Foundations and continuous learning."
+          description="A computer-science foundation backed by hands-on automation and cloud certifications."
         />
 
-        <div className="grid gap-6 lg:grid-cols-12">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Education */}
           <div className="lg:col-span-7">
-            <div className="mb-4 flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 text-[var(--accent-emerald)]" />
-              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                education
-              </h3>
-            </div>
-            <div className="space-y-4">
+            <div className="border-t border-[var(--hair-strong)]">
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <span>education</span>
+                <span>fig. 02</span>
+              </div>
+
               {education.map((e, i) => (
                 <motion.div
                   key={e.institution}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                  className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/50 p-6 transition-colors hover:border-[var(--accent-emerald)]/40"
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="border-b border-[var(--hair)] py-7"
                 >
-                  <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[var(--accent-emerald)]/10 blur-2xl" />
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
-                      <h4 className="text-lg font-semibold">{e.institution}</h4>
-                      <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <MapPin className="h-3 w-3" />
-                        {e.location}
-                      </p>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-border/60 bg-background/50 px-2.5 py-1 font-mono text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h3 className="font-serif text-3xl font-light tracking-tight">
+                      {e.institution}
+                    </h3>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal">
                       {e.period}
                     </span>
                   </div>
-                  <p className="mt-3 font-medium">{e.degree}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+
+                  <p className="mt-3 text-[15px] text-foreground/80">
+                    {e.degree}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                    {e.location}
+                  </p>
+
+                  <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
                     {e.detail}
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-3 rounded-xl border border-[var(--accent-emerald)]/30 bg-[var(--accent-emerald)]/10 px-4 py-2">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent-emerald)]">
+
+                  <div className="mt-6 inline-flex items-baseline gap-3 border border-[var(--hair-strong)] px-4 py-3">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                       {e.score.label}
                     </span>
-                    <span className="text-2xl font-bold text-[var(--accent-emerald)]">
+                    <span className="font-serif text-3xl font-light text-signal">
                       {e.score.value}
                     </span>
                   </div>
@@ -74,72 +68,50 @@ export function Education() {
 
           {/* Certifications */}
           <div className="lg:col-span-5">
-            <div className="mb-4 flex items-center gap-2">
-              <Award className="h-5 w-5 text-[var(--accent-amber)]" />
-              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                certifications
-              </h3>
-            </div>
-            <div className="space-y-4">
+            <div className="border-t border-[var(--hair-strong)]">
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <span>certifications</span>
+                <span>{certifications.length} entries</span>
+              </div>
+
               {certifications.map((c, i) => (
                 <motion.div
                   key={c.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                  className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/50 p-5 transition-colors hover:border-[var(--accent-amber)]/40"
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="border-b border-[var(--hair)] py-5"
                 >
-                  <div className="flex items-start gap-3">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[var(--accent-amber)]/40 bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]">
-                      <BadgeCheck className="h-5 w-5" />
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-mono text-[11px] text-signal">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold leading-snug">
+                      <p className="text-[14px] font-medium leading-snug">
                         {c.title}
                       </p>
-                      <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                      <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
                         {c.issuer}
                       </p>
-                      <p className="mt-2 text-xs text-muted-foreground">
+                      <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground/80">
                         {c.focus}
                       </p>
                     </div>
                   </div>
                 </motion.div>
               ))}
+            </div>
 
-              {/* Marquee strip */}
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/40 p-4">
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                  always learning
-                </p>
-                <div className="relative overflow-hidden">
-                  <div className="flex w-max animate-marquee gap-3">
-                    {[...Array(2)].map((_, k) => (
-                      <div key={k} className="flex gap-3">
-                        {[
-                          "system design",
-                          "clean architecture",
-                          "testing",
-                          "DevOps",
-                          "real-time systems",
-                          "API design",
-                          "performance",
-                          "security",
-                        ].map((t) => (
-                          <span
-                            key={t + k}
-                            className="rounded-full border border-border/50 bg-card/40 px-3 py-1 font-mono text-xs text-muted-foreground"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            {/* Currently exploring */}
+            <div className="mt-8 border border-dashed border-[var(--hair-strong)] p-5">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                currently exploring
+              </p>
+              <p className="mt-2 font-serif text-lg italic font-light text-foreground/80">
+                system design · clean architecture · distributed systems ·
+                observability
+              </p>
             </div>
           </div>
         </div>

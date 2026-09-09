@@ -1,289 +1,181 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Sparkles,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowDownRight, Mail, Github, Linkedin } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
 
-function useTypewriter(words: string[], typeMs = 80, holdMs = 1400) {
-  const [index, setIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = words[index % words.length];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!deleting && text === current) {
-      timeout = setTimeout(() => setDeleting(true), holdMs);
-    } else if (deleting && text === "") {
-      // Defer state transitions so we don't call setState synchronously
-      // inside the effect body (avoids cascading renders).
-      timeout = setTimeout(() => {
-        setDeleting(false);
-        setIndex((i) => (i + 1) % words.length);
-      }, 60);
-    } else {
-      const next = deleting
-        ? current.slice(0, text.length - 1)
-        : current.slice(0, text.length + 1);
-      timeout = setTimeout(() => setText(next), deleting ? typeMs / 2 : typeMs);
-    }
-    return () => clearTimeout(timeout);
-  }, [text, deleting, index, words, typeMs, holdMs]);
-
-  return text;
-}
-
 export function Hero() {
-  const typed = useTypewriter(profile.roles);
-
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20"
+      className="relative min-h-[100svh] scroll-mt-14 px-5 pt-32 pb-16 sm:px-8 sm:pt-36"
     >
-      {/* Background layers */}
-      <div className="absolute inset-0 -z-10 bg-grid opacity-70" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_0%,color-mix(in_oklch,var(--accent-emerald)_14%,transparent),transparent_70%)]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background to-transparent" />
+      <div className="mx-auto max-w-6xl">
+        {/* Top meta strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center justify-between border-b border-[var(--hair)] pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
+        >
+          <span>est. 2024 · Bengaluru, IN</span>
+          <span className="hidden sm:inline">portfolio / v1.0</span>
+          <span className="flex items-center gap-2">
+            <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
+            open to work
+          </span>
+        </motion.div>
 
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center">
-        {/* Left: copy */}
-        <div className="lg:col-span-7">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/50 px-3 py-1.5 backdrop-blur"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-[var(--accent-emerald)]" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent-emerald)]" />
-            </span>
-            <span className="font-mono text-xs text-muted-foreground">
-              available for work · {profile.availability.toLowerCase()}
-            </span>
-          </motion.div>
+        {/* Main grid */}
+        <div className="grid gap-10 py-12 sm:py-16 lg:grid-cols-12">
+          {/* Headline */}
+          <div className="lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground"
+            >
+              {"// full-stack developer · 1+ yr in production"}
+            </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="mt-6 font-sans text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
-          >
-            <span className="block text-muted-foreground text-sm font-mono uppercase tracking-[0.3em] mb-4">
-              {`> hello_world.exe`}
-            </span>
-            <span className="block">Avinaash</span>
-            <span className="block">
+            <motion.h1
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
+              className="font-serif text-[3.25rem] font-light leading-[0.98] tracking-tight sm:text-7xl lg:text-[5.5rem]"
+            >
+              Avinaash
+              <br />
               Munavalli
-              <span className="text-[var(--accent-emerald)]">.</span>
-            </span>
-          </motion.h1>
+              <span className="text-signal">.</span>
+            </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-5 flex items-center gap-3"
-          >
-            <span className="font-mono text-lg text-muted-foreground sm:text-2xl">
-              &gt;
-            </span>
-            <span className="font-mono text-lg font-medium sm:text-2xl">
-              <span className="text-gradient-emerald">{typed}</span>
-              <span className="animate-blink ml-0.5 inline-block h-5 w-[3px] -translate-y-0.5 bg-[var(--accent-emerald)] align-middle sm:h-7" />
-            </span>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
-          >
-            {profile.tagline}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.24 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="group rounded-full bg-[var(--accent-emerald)] text-[var(--primary-foreground)] hover:bg-[var(--accent-emerald)]/90"
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mt-8 max-w-xl font-serif text-xl font-light leading-relaxed text-foreground/85 italic sm:text-2xl"
             >
-              <a href="#work">
-                <Sparkles className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
-                View my work
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full border-border/70 bg-card/40 backdrop-blur"
+              I ship industrial monitoring platforms, workflow-automation
+              tools, and the backend plumbing that keeps them honest.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.22 }}
+              className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground"
             >
-              <a href={profile.resumePath} target="_blank" rel="noreferrer">
-                Download résumé
+              Based in Bengaluru. Most recently: a real-time machine-telemetry
+              dashboard for enterprise clients — where I cut page-load times by
+              40%, reconciled 220 corrupted production records, and automated
+              10+ hours of weekly ops work.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
+            >
+              <a
+                href="#work"
+                className="group inline-flex items-center gap-2 bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground"
+              >
+                See the work
+                <ArrowDownRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </a>
-            </Button>
-            <div className="ml-1 flex items-center gap-1">
-              {[
-                { href: profile.github, Icon: Github, label: "GitHub" },
-                { href: profile.linkedin, Icon: Linkedin, label: "LinkedIn" },
-                { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
-              ].map(({ href, Icon, label }) => (
-                <Button
-                  key={label}
-                  asChild
-                  variant="ghost"
-                  size="icon"
-                  className="h-10 w-10 rounded-full"
-                >
-                  <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                    <Icon className="h-4.5 w-4.5" />
-                  </a>
-                </Button>
-              ))}
+              <a
+                href={profile.resumePath}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-xs uppercase tracking-[0.15em] underline decoration-[var(--hair-strong)] underline-offset-4 transition-colors hover:decoration-signal"
+              >
+                Download résumé ↓
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Dossier sidebar */}
+          <motion.aside
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-12 border-t border-[var(--hair)] pt-8 lg:col-span-4 lg:mt-0 lg:border-l lg:border-t-0 lg:border-l-[var(--hair)] lg:pl-8 lg:pt-0"
+          >
+            <dl className="font-mono text-[11px] uppercase tracking-[0.12em]">
+              <Row k="Role" v="Full-Stack Developer" />
+              <Row k="Based" v={profile.location} />
+              <Row k="Open to" v="Bengaluru / Remote" />
+              <Row k="Email" v={profile.email} href={`mailto:${profile.email}`} />
+              <Row k="Phone" v={profile.phone} href={`tel:${profile.phone.replace(/\s/g, "")}`} />
+              <Row k="GitHub" v={`@${profile.githubHandle}`} href={profile.github} />
+              <Row
+                k="LinkedIn"
+                v="/in/avinaash-m"
+                href={profile.linkedin}
+                last
+              />
+            </dl>
+
+            <div className="mt-8 flex items-center gap-4 border-t border-[var(--hair)] pt-5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                find me
+              </span>
+              <div className="flex items-center gap-3">
+                <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Github className="h-4 w-4" />
+                </a>
+                <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a href={`mailto:${profile.email}`} aria-label="Email" className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Mail className="h-4 w-4" />
+                </a>
+              </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.32 }}
-            className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-muted-foreground"
-          >
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5 text-[var(--accent-emerald)]" />
-              {profile.location}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Phone className="h-3.5 w-3.5 text-[var(--accent-emerald)]" />
-              {profile.phone}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Mail className="h-3.5 w-3.5 text-[var(--accent-emerald)]" />
-              {profile.email}
-            </span>
-          </motion.div>
+          </motion.aside>
         </div>
 
-        {/* Right: terminal window */}
-        <motion.div
-          initial={{ opacity: 0, y: 24, rotateX: 8 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="lg:col-span-5"
-        >
-          <TerminalCard />
-        </motion.div>
+        {/* Bottom rule */}
+        <div className="flex items-center justify-between border-t border-[var(--hair)] pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70">
+          <span>scroll to read</span>
+          <span>01 — 07</span>
+        </div>
       </div>
-
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block"
-      >
-        <button
-          onClick={() =>
-            document
-              .getElementById("about")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-          aria-label="Scroll down"
-        >
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-            scroll
-          </span>
-          <ArrowDown className="h-4 w-4 animate-bounce" />
-        </button>
-      </motion.div>
     </section>
   );
 }
 
-function TerminalCard() {
-  const lines = [
-    { p: "avinaash@portfolio", c: "~", cmd: "whoami", out: "full-stack developer · 1+ yr production" },
-    { p: "avinaash@portfolio", c: "~", cmd: "cat stack.json", out: '{"runtime":"node","ui":"react","db":"mysql"}' },
-    { p: "avinaash@portfolio", c: "~", cmd: "deploy --env prod", out: "✓ build passed · ✓ 0 errors · shipped" },
-  ];
-
-  return (
-    <div className="relative">
-      <div className="absolute -inset-2 -z-10 rounded-3xl bg-gradient-to-br from-[var(--accent-emerald)]/20 via-transparent to-[var(--accent-amber)]/15 blur-2xl" />
-      <div className="overflow-hidden rounded-2xl border border-border/70 glass shadow-2xl shadow-black/30">
-        {/* Title bar */}
-        <div className="flex items-center gap-2 border-b border-border/60 bg-card/60 px-4 py-3">
-          <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-          <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-          <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-          <span className="ml-2 font-mono text-xs text-muted-foreground">
-            ~/avinaash — zsh
-          </span>
-        </div>
-
-        {/* Body */}
-        <div className="space-y-3 p-5 font-mono text-[13px] leading-relaxed">
-          <p className="text-muted-foreground">
-            <span className="text-[var(--accent-emerald)]">➜</span>{" "}
-            <span className="text-[var(--accent-amber)]">cat</span> profile.md
-          </p>
-          <p className="text-foreground/90">
-            <span className="text-[var(--accent-emerald)]"># </span>
-            Full-stack developer shipping enterprise software
-          </p>
-
-          {lines.map((l, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 + i * 0.5, duration: 0.4 }}
-              className="space-y-1"
-            >
-              <p>
-                <span className="text-[var(--accent-emerald)]">{l.p}</span>
-                <span className="text-muted-foreground">:</span>
-                <span className="text-[var(--accent-amber)]">{l.c}</span>
-                <span className="text-muted-foreground">$ </span>
-                <span className="text-foreground">{l.cmd}</span>
-              </p>
-              <p className="pl-1 text-muted-foreground">{l.out}</p>
-            </motion.div>
-          ))}
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 0.4 }}
-          >
-            <span className="text-[var(--accent-emerald)]">➜</span>
-            <span className="text-muted-foreground">:</span>
-            <span className="text-[var(--accent-amber)]">~</span>
-            <span className="text-muted-foreground">$ </span>
-            <span className="animate-blink inline-block h-3.5 w-2 -translate-y-0.5 bg-[var(--accent-emerald)] align-middle" />
-          </motion.p>
-        </div>
-      </div>
+function Row({
+  k,
+  v,
+  href,
+  last,
+}: {
+  k: string;
+  v: string;
+  href?: string;
+  last?: boolean;
+}) {
+  const inner = (
+    <div
+      className={`flex items-baseline justify-between gap-4 py-2.5 ${
+        last ? "" : "border-b border-[var(--hair)]"
+      }`}
+    >
+      <dt className="shrink-0 text-muted-foreground/80">{k}</dt>
+      <dd className="text-right text-foreground normal-case tracking-normal lowercase first-letter:uppercase">
+        {v}
+      </dd>
     </div>
+  );
+  return href ? (
+    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="block transition-colors hover:[&_dd]:text-signal">
+      {inner}
+    </a>
+  ) : (
+    inner
   );
 }

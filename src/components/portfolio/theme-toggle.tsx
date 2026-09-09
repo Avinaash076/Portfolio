@@ -2,7 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();
@@ -13,17 +13,15 @@ export function ThemeToggle() {
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
+    <button
       aria-label="Toggle theme"
-      className="relative h-9 w-9 rounded-full border border-border/60 bg-background/40"
       onClick={toggle}
+      className={cn(
+        "flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+      )}
     >
-      {/* Render both icons; CSS controls visibility based on .dark class.
-          This avoids the mounted-state pattern (and hydration mismatch). */}
-      <Sun className="hidden h-4 w-4 text-[var(--accent-amber)] dark:block" />
-      <Moon className="block h-4 w-4 text-[var(--accent-emerald)] dark:hidden" />
-    </Button>
+      <Sun className="hidden h-4 w-4 dark:block" />
+      <Moon className="block h-4 w-4 dark:hidden" />
+    </button>
   );
 }

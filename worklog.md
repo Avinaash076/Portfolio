@@ -36,3 +36,35 @@ Unresolved / Next-phase priorities:
 - Consider adding a blog/articles section.
 - Wire real GitHub pinned-repos via GitHub REST API for live project data.
 - The scroll-reveal animations (whileInView) mean off-screen sections are at opacity 0 until scrolled — standard for portfolios but full-page screenshot tools may show gaps; acceptable for real users.
+
+---
+Task ID: 2
+Agent: main (Z.ai Code)
+Task: User feedback: previous design looked like "AI slop" — generic AI-produced CSS. Rebuild with a genuine, distinctive design point of view.
+
+Work Log:
+- Diagnosed AI-slop tells in v1: glassmorphism cards, gradient text, floating glow blobs, "terminal window" cliché, pulse-ring animations, marquee buzzwords, rounded-2xl everywhere, vague motivational copy.
+- Committed to a new direction: "Field Notes" — editorial engineering-dossier aesthetic. Warm paper/ink palette (not zinc), Fraunces serif display + Geist Mono + Geist Sans, hairline rules instead of glass, sharp corners (2px radius), asymmetric 12-col grid with marginal section numbers, real information density.
+- Rewrote globals.css: warm paper (#f3eee2) / ink (#14110d) palette with single industrial-green signal color, solid hairline borders, sharp radii, removed glass/marquee/float/pulse-ring/gradient utilities entirely.
+- Added Fraunces variable font (opsz + SOFT axes) to layout.tsx alongside Geist Sans/Mono.
+- Rewrote navbar: editorial top bar, mono labels, hairline border, sharp.
+- Rewrote hero: left-aligned big serif name, italic serif subhead, real dossier sidebar (Role/Based/Open-to/Email/Phone/GitHub/LinkedIn as a definition list with hairlines), no terminal cliché, no floating chips.
+- Rewrote about: editorial prose with inline signal-highlighted metrics (40%, 220 records, 10+ hrs) + a proper "fig. 01 — measured outcomes" data table replacing the floating stat cards.
+- Rewrote skills: hairline index rows (category + numbered items) instead of chip-grid with hover glows.
+- Rewrote experience: editorial log with marginal dates, numbered highlights, metric chips inline.
+- Rewrote projects: editorial case-study entries with sharp borders, big serif titles, numbered highlights, no fake "Live demo" buttons.
+- Rewrote education: editorial degree entry + numbered certifications list (AWS Cloud Quest first) + "currently exploring" block.
+- Rewrote contact: hairline channels list + clean underlined-input form, no glass.
+- Rewrote footer: minimal editorial colophon (index + status + colophon line "set in Fraunces & Geist").
+- Removed cursor-glow and scroll-progress components (also AI-slop tells) from page.tsx.
+- VLM verdict: "Deliberately designed. This is not AI slop." — confirmed zero glassmorphism/gradient/glow/marquee remains. Fixed minor ampersand-overuse and slightly-too-crafted copy per VLM feedback.
+- Fixed mobile: dossier sidebar was hidden on mobile (lg:col-span only) → added top border + mt-12 so it now stacks visibly below the headline content on small screens. VLM confirmed fix.
+- Verified: lint clean, dev server 200, no console/runtime errors, contact form persists to DB (3 messages).
+
+Stage Summary:
+- Portfolio fully redesigned from "AI-slop" to a deliberate editorial point of view.
+- Design system: Fraunces (serif display) + Geist Mono (data/labels) + Geist Sans (body); warm paper/ink; one industrial-green signal color; hairline rules; sharp 2px radii; asymmetric grid.
+- All AI-slop tells removed: no glass, no gradients, no glow blobs, no pulse rings, no marquee, no rounded-2xl, no floating chips, no terminal-window cliché.
+- Content density up: real metrics inline-highlighted, spec-sheet data table, numbered highlights, marginal dates.
+- Mobile verified: dossier panel now stacks visibly, no overlaps.
+- Deployable to Vercel as-is (Next.js 16, SQLite via Prisma — note: contact form needs a persistent DB for prod; see deployment notes).
