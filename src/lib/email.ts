@@ -49,9 +49,13 @@ export async function sendContactEmail(payload: ContactPayload) {
     ? `Portfolio enquiry: ${payload.subject.trim()}`
     : `Portfolio enquiry from ${payload.name}`;
 
-  const fromEmail = process.env.RESEND_FROM_EMAIL
-    ? process.env.RESEND_FROM_EMAIL.trim()
-    : "Portfolio Contact <onboarding@resend.dev>";
+  let fromEmail = (process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev").trim();
+  if (fromEmail.includes("resend.com")) {
+    fromEmail = fromEmail.replace(/resend\.com/g, "resend.dev");
+  }
+  if (!fromEmail.includes("<")) {
+    fromEmail = `Portfolio Contact <${fromEmail}>`;
+  }
 
   const { error } = await resend.emails.send({
     from: fromEmail,
