@@ -134,9 +134,14 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  *, ::before, ::after {
+    border-color: var(--border);
+    border-style: solid;
     border-width: 0;
+  }
+  button, input, select, textarea {
+    border-style: none;
+    outline: none;
   }
   html {
     scroll-behavior: smooth;
