@@ -49,10 +49,12 @@ export async function sendContactEmail(payload: ContactPayload) {
     ? `Portfolio enquiry: ${payload.subject.trim()}`
     : `Portfolio enquiry from ${payload.name}`;
 
+  const fromEmail = CONTACT_FROM_EMAIL.trim();
+
   const { error } = await resend.emails.send({
-    from: `Avinaash Munavalli Portfolio <${CONTACT_FROM_EMAIL}>`,
-    to: [CONTACT_TO_EMAIL],
-    replyTo: `${payload.name} <${payload.email}>`,
+    from: fromEmail.includes("<") ? fromEmail : `onboarding@resend.com`,
+    to: [CONTACT_TO_EMAIL.trim()],
+    replyTo: payload.email.trim(),
     subject: subjectLine,
     text: [
       `New message from your portfolio contact form.`,
@@ -70,6 +72,7 @@ export async function sendContactEmail(payload: ContactPayload) {
   });
 
   if (error) {
-    throw new Error(`Resend error: ${error.message}`);
+    console.error("Resend API returned error:", error);
+    throw new Error(error.message || "Failed to deliver email via Resend");
   }
 }
