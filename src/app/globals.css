@@ -136,7 +136,7 @@
 @layer base {
   * {
     @apply border-border;
-    border-width: 1px;
+    border-width: 0;
   }
   html {
     scroll-behavior: smooth;
@@ -149,11 +149,6 @@
   ::selection {
     background: var(--signal);
     color: var(--background);
-  }
-  /* Reset border-width on elements that shouldn't get forced 1px */
-  button, a, input, textarea, select, span, p, h1, h2, h3, h4, h5, h6,
-  ul, ol, li, label, svg, img, div, figure, blockquote {
-    border-width: 0;
   }
 }
 

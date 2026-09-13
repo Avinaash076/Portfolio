@@ -15,7 +15,7 @@ export function Skills() {
           num="03"
           eyebrow="skills"
           title="A T-shaped full-stack toolkit."
-          description="From device signals to dashboards — the languages, backends, databases, security, and integrations I reach for in production."
+          description="The languages, frameworks, databases, and tools I use across the full stack — from hardware integrations to production web services."
         />
 
         <div className="border-t border-[var(--hair-strong)]">
@@ -28,29 +28,21 @@ export function Skills() {
               transition={{ duration: 0.4, delay: i * 0.04 }}
               className="grid grid-cols-1 border-b border-[var(--hair)] py-6 sm:grid-cols-12 sm:gap-6"
             >
-              {/* Index + title */}
+              {/* Title */}
               <div className="mb-3 sm:col-span-4 sm:mb-0">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-[11px] text-signal">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-serif text-2xl font-light tracking-tight">
-                    {cat.title}
-                  </h3>
-                </div>
+                <h3 className="font-serif text-2xl font-light tracking-tight">
+                  {cat.title}
+                </h3>
               </div>
 
               {/* Items */}
               <div className="sm:col-span-8">
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {cat.skills.map((s, j) => (
+                  {cat.skills.map((s) => (
                     <li
                       key={s}
                       className="font-mono text-[13px] text-foreground/75"
                     >
-                      <span className="mr-1.5 text-muted-foreground/50">
-                        {String(j + 1).padStart(2, "0")}
-                      </span>
                       {s}
                     </li>
                   ))}

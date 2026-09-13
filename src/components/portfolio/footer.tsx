@@ -83,11 +83,11 @@ export function Footer() {
         {/* Colophon */}
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-[var(--hair)] pt-6 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/70 sm:flex-row sm:items-center">
           <p>
-            © {year} {profile.name} · set in Fraunces &amp; Geist
+            © {year} {profile.name}
           </p>
           <p className="flex items-center gap-2">
             <span className="h-1 w-1 rounded-full bg-signal" />
-            built with next.js · deployed to vercel
+            built with next.js
           </p>
         </div>
       </div>

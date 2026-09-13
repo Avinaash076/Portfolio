@@ -245,7 +245,7 @@ export const projects: Project[] = [
       "Required-field validation, RBAC, CSRF protection, prepared statements, form duplication, employee management, and submission history views.",
       "DeepSeek-powered assistant generates editable form structures from natural-language descriptions, with validation and manual review before publish.",
     ],
-    repoUrl: "https://github.com/Avinaash076",
+    repoUrl: "https://github.com/Avinaash076/Flowform",
   },
   {
     id: "industrial-monitoring",
@@ -265,7 +265,7 @@ export const projects: Project[] = [
       "N+1 query refactors using eager loading and batched joins cut page-load times by up to 40%.",
       "RBAC across 5+ roles with bcrypt, CSRF protection, prepared statements, and secure sessions.",
     ],
-    repoUrl: "https://github.com/Avinaash076",
+    // repoUrl: "https://github.com/Avinaash076",
   },
   {
     id: "spendsense",
@@ -284,7 +284,27 @@ export const projects: Project[] = [
       "Interactive Jetpack Compose dashboard for spending insights and trends.",
       "Clean MVVM architecture with locally persisted transaction records.",
     ],
-    repoUrl: "https://github.com/Avinaash076",
+    repoUrl: "https://github.com/Avinaash076/SpendSense",
+  },
+  {
+    id: "ai-support-agent",
+    name: "Apple AI Support Agent",
+    tagline: "RAG-powered Customer Support Classifier & Reply Generator",
+    category: "AI / NLP",
+    status: "in-progress",
+    year: "2026",
+    accent: "emerald",
+    featured: true,
+    description:
+      "A production-ready AI support agent for Apple Support that classifies incoming customer queries into intents, retrieves grounded historical resolutions via TF-IDF RAG from 50,000+ real Twitter support pairs, drafts replies using a Groq-hosted LLM, and recommends human escalation through a triage engine.",
+    stack: ["Python", "Streamlit", "Groq LLM", "TF-IDF", "RAG", "NLP", "Unittest"],
+    highlights: [
+      "Classifies customer queries into structured intents and triggers automated or escalated responses via a triage engine.",
+      "Retrieves the most relevant Apple Support reply examples from a corpus of 50,000+ Twitter pairs using TF-IDF similarity.",
+      "Groq-hosted LLM drafts grounded, context-aware replies through a reasoning-optimised chat interface.",
+      "Includes a 40-case benchmark suite covering battery, iCloud, billing, hardware, and follow-up scenarios for regression testing.",
+    ],
+    repoUrl: "https://github.com/Avinaash076/AI-Support-Agent",
   },
 ];
 

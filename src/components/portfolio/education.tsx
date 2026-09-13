@@ -20,8 +20,8 @@ export function Education() {
           <div className="lg:col-span-7">
             <div className="border-t border-[var(--hair-strong)]">
               <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>education</span>
-                <span>fig. 02</span>
+                <span><b>education</b></span>
+                {/* <span>fig. 02</span> */}
               </div>
 
               {education.map((e, i) => (
@@ -70,8 +70,8 @@ export function Education() {
           <div className="lg:col-span-5">
             <div className="border-t border-[var(--hair-strong)]">
               <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>certifications</span>
-                <span>{certifications.length} entries</span>
+                <span><b>certifications</b></span>
+                {/* <span>{certifications.length} entries</span> */}
               </div>
 
               {certifications.map((c, i) => (

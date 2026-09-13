@@ -38,22 +38,21 @@ export function About() {
                 dashboard.
               </p>
               <p>
-                The work I&apos;m proudest of is unglamorous. Refactoring N+1
-                queries with eager loading and batched joins to drop
-                reporting-page load times by{" "}
+                Refactored N+1 queries with eager loading and batched joins,
+                cutting reporting-page load times by{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
                   40%
                 </span>
-                . Hunting down a faulty SQL query that had silently generated{" "}
+                . Tracked down a faulty SQL query that had silently written{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
                   220 incorrect records
                 </span>
-                , deploying the fix, and reconciling every one of them. Building
-                bulk-import and dedup tooling that removed{" "}
+                {" "}into production — deployed the fix and reconciled every one of them.
+                Built bulk-import and dedup tooling that eliminated{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
                   10+ hours
-                </span>{" "}
-                of manual ops work per week.
+                </span>
+                {" "}of manual ops work each week.
               </p>
               <p className="text-muted-foreground">
                 Strong interest in clean testing practices, API validation, RBAC,
@@ -73,10 +72,6 @@ export function About() {
             className="lg:col-span-5"
           >
             <div className="border-t border-[var(--hair-strong)]">
-              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>fig. 01 — measured outcomes</span>
-                <span>verified</span>
-              </div>
 
               <table className="w-full">
                 <tbody>
@@ -108,10 +103,6 @@ export function About() {
                 </tbody>
               </table>
 
-              <div className="flex items-center justify-between py-3 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/70">
-                <span>source: résumé / self-reported</span>
-                <span>n = {stats.length}</span>
-              </div>
             </div>
           </motion.div>
         </div>

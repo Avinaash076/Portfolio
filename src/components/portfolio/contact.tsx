@@ -87,17 +87,16 @@ export function Contact() {
             <div className="border-t border-[var(--hair-strong)]">
               <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 <span>channels</span>
-                <span>fig. 03</span>
+                {/* <span>fig. 03</span> */}
               </div>
 
               {channels.map((c, i) => {
                 const inner = (
                   <div
-                    className={`flex items-baseline justify-between gap-4 py-4 ${
-                      i === channels.length - 1
-                        ? ""
-                        : "border-b border-[var(--hair)]"
-                    } transition-colors hover:bg-[var(--paper-tint)]`}
+                    className={`flex items-baseline justify-between gap-4 py-4 ${i === channels.length - 1
+                      ? ""
+                      : "border-b border-[var(--hair)]"
+                      } transition-colors hover:bg-[var(--paper-tint)]`}
                   >
                     <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
                       {c.k}
@@ -149,8 +148,8 @@ export function Contact() {
               className="border-t border-[var(--hair-strong)]"
             >
               <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>compose message</span>
-                <span>fields marked * required</span>
+                <span><b>Get in touch</b></span>
+                {/* <span>fields marked * required</span> */}
               </div>
 
               <div className="grid gap-6 py-6 sm:grid-cols-2">
@@ -197,9 +196,9 @@ export function Contact() {
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--hair)] pt-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                {/* <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
                   stored securely · replied within 1–2 days
-                </p>
+                </p> */}
                 <button
                   type="submit"
                   disabled={status === "loading"}

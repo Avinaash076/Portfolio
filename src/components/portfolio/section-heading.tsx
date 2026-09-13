@@ -19,13 +19,9 @@ export function SectionHeading({
   return (
     <div className={cn("mb-14", className)}>
       {/* Top rule + section marker */}
-      <div className="rule-strong-t flex items-center justify-between pt-6">
-        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="text-signal">§ {num}</span>
-          <span>{eyebrow}</span>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
-          field notes
+      <div className="rule-strong-t pt-6">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          {eyebrow}
         </span>
       </div>
 

@@ -16,10 +16,8 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-between border-b border-[var(--hair)] pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
+          className="flex items-center justify-end border-b border-[var(--hair)] pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
         >
-          <span>est. 2024 · Bengaluru, IN</span>
-          <span className="hidden sm:inline">portfolio / v1.0</span>
           <span className="flex items-center gap-2">
             <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
             open to work
@@ -161,9 +159,8 @@ function Row({
 }) {
   const inner = (
     <div
-      className={`flex items-baseline justify-between gap-4 py-2.5 ${
-        last ? "" : "border-b border-[var(--hair)]"
-      }`}
+      className={`flex items-baseline justify-between gap-4 py-2.5 ${last ? "" : "border-b border-[var(--hair)]"
+        }`}
     >
       <dt className="shrink-0 text-muted-foreground/80">{k}</dt>
       <dd className="text-right text-foreground normal-case tracking-normal lowercase first-letter:uppercase">
