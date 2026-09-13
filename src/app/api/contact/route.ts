@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
 import { sendContactEmail, isEmailEnabled } from "@/lib/email";
 import { z } from "zod";
+
+export const dynamic = "force-dynamic";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(80),
@@ -55,6 +56,7 @@ export async function POST(req: Request) {
 
     // ── Dev / preview fallback: try SQLite, or inform user ──────
     try {
+      const { db } = await import("@/lib/db");
       const record = await db.contactMessage.create({
         data: {
           name,
