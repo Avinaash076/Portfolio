@@ -31,7 +31,7 @@ export const CONTACT_TO_EMAIL =
  * For production with a custom domain, set RESEND_FROM_EMAIL in env.
  */
 export const CONTACT_FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "onboarding@resend.com";
+  process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
 export type ContactPayload = {
   name: string;
@@ -49,10 +49,12 @@ export async function sendContactEmail(payload: ContactPayload) {
     ? `Portfolio enquiry: ${payload.subject.trim()}`
     : `Portfolio enquiry from ${payload.name}`;
 
-  const fromEmail = CONTACT_FROM_EMAIL.trim();
+  const fromEmail = process.env.RESEND_FROM_EMAIL
+    ? process.env.RESEND_FROM_EMAIL.trim()
+    : "Portfolio Contact <onboarding@resend.dev>";
 
   const { error } = await resend.emails.send({
-    from: fromEmail.includes("<") ? fromEmail : `onboarding@resend.com`,
+    from: fromEmail,
     to: [CONTACT_TO_EMAIL.trim()],
     replyTo: payload.email.trim(),
     subject: subjectLine,
