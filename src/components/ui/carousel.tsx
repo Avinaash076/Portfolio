@@ -95,7 +95,10 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    onSelect(api)
+
+    // Set initial value inside a microtask to avoid synchronous state update in effect
+    Promise.resolve().then(() => onSelect(api))
+
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 

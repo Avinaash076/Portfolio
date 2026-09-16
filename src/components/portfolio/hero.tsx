@@ -3,14 +3,17 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, Mail, Github, Linkedin } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
+import { DarkArcBandsBackground } from "@/components/background-gradient/dark-arc-bands-background";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] scroll-mt-14 px-5 pt-32 pb-16 sm:px-8 sm:pt-36"
+      className="relative min-h-[100svh] scroll-mt-14"
     >
-      <div className="mx-auto max-w-6xl">
+      <DarkArcBandsBackground className="absolute inset-0 min-h-[100svh]" />
+
+      <div className="relative mx-auto max-w-6xl px-5 pt-32 pb-16 sm:px-8 sm:pt-36">
         {/* Top meta strip */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -55,8 +58,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mt-8 max-w-xl font-serif text-xl font-light leading-relaxed text-foreground/85 italic sm:text-2xl"
             >
-              I ship industrial monitoring platforms, workflow-automation
-              tools, and the backend plumbing that keeps them honest.
+              I build reliable web services and enterprise tools that scale.
             </motion.p>
 
             <motion.p
@@ -65,10 +67,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.22 }}
               className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground"
             >
-              Based in Bengaluru. Most recently: a real-time machine-telemetry
-              dashboard for enterprise clients — where I cut page-load times by
-              40%, reconciled 220 corrupted production records, and automated
-              10+ hours of weekly ops work.
+              Based in Bengaluru. Recently built a machine-telemetry dashboard
+              cutting page-load times by 40% and automating 10+ hours of ops work weekly.
             </motion.p>
 
             <motion.div

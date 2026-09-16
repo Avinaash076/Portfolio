@@ -23,7 +23,7 @@ export const profile = {
   linkedinHandle: "avinaash-m-832a33279",
   resumePath: "/avinaash_munavalli.pdf",
   summary:
-    "Full-stack web developer with 1+ year of production experience building and operating enterprise monitoring and workflow-automation systems. Reduced key reporting-page load times by up to 40%, resolved a production SQL defect affecting 220 records, and automated more than 10 hours of weekly operations work.",
+    "Full-stack developer building enterprise monitoring and workflow tools. Cut page load times by 40%, fixed a production defect impacting 220 records, and automated 10+ hours of operations work weekly.",
 };
 
 export const stats = [

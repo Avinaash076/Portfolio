@@ -11,7 +11,10 @@ export function useIsMobile() {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
     mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+
+    // Set initial value inside a microtask to avoid synchronous state update in effect
+    Promise.resolve().then(() => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT))
+
     return () => mql.removeEventListener("change", onChange)
   }, [])
 
