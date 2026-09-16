@@ -7,13 +7,14 @@ import { Projects } from "@/components/portfolio/projects";
 import { Education } from "@/components/portfolio/education";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
+import { SunsetBloomBackground } from "@/components/background-gradient/sunset-bloom-background";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <SunsetBloomBackground className="flex min-h-screen flex-col">
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 z-10 relative">
         <Hero />
         <About />
         <Skills />
@@ -24,6 +25,6 @@ export default function Home() {
       </main>
 
       <Footer />
-    </div>
+    </SunsetBloomBackground>
   );
 }

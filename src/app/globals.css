@@ -170,13 +170,13 @@
 
   /* Hairline rule — the design's primary structural element */
   .rule {
-    background: var(--hair);
+    background: transparent;
   }
-  .rule-t { border-top: 1px solid var(--hair); }
-  .rule-b { border-bottom: 1px solid var(--hair); }
-  .rule-l { border-left: 1px solid var(--hair); }
-  .rule-r { border-right: 1px solid var(--hair); }
-  .rule-strong-t { border-top: 1px solid var(--hair-strong); }
+  .rule-t { border-top: none; }
+  .rule-b { border-bottom: none; }
+  .rule-l { border-left: none; }
+  .rule-r { border-right: none; }
+  .rule-strong-t { border-top: none; }
 
   /* Grid paper background — very subtle */
   .bg-grid {

@@ -45,7 +45,7 @@ export function Navbar() {
       <div
         className={cn(
           "rule-b transition-all duration-200",
-          scrolled ? "bg-background/90 backdrop-blur-sm" : "bg-background"
+          scrolled ? "bg-transparent/50 backdrop-blur-md" : "bg-transparent"
         )}
       >
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 sm:px-8">
@@ -103,7 +103,7 @@ export function Navbar() {
 
       {/* Mobile sheet */}
       {open && (
-        <div className="rule-b bg-background lg:hidden">
+        <div className="rule-b bg-transparent/80 backdrop-blur-md lg:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col px-5 py-2 sm:px-8">
             {navSections.map((s) => (
               <button

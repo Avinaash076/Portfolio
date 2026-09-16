@@ -3,21 +3,24 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { education, certifications } from "@/lib/portfolio-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Education() {
   return (
-    <section id="education" className="scroll-mt-14 px-5 py-24 sm:px-8 sm:py-32">
+    <section id="education" className="scroll-mt-14 px-5 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          num="06"
-          eyebrow="education"
-          title="Foundations and continuous learning."
-          description="A computer-science foundation backed by hands-on automation and cloud certifications."
-        />
-
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Education */}
-          <div className="lg:col-span-7">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="education" className="border-none">
+            <AccordionTrigger className="hover:no-underline py-0 py-8">
+              <div className="flex flex-col text-left gap-2 w-full">
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">06 — education</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Foundations & learning</h2>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 pt-4">
+                {/* Education */}
+                <div className="lg:col-span-7">
             <div className="border-t border-[var(--hair-strong)]">
               <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 <span><b>education</b></span>
@@ -103,18 +106,21 @@ export function Education() {
               ))}
             </div>
 
-            {/* Currently exploring */}
-            <div className="mt-8 border border-dashed border-[var(--hair-strong)] p-5">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                currently exploring
-              </p>
-              <p className="mt-2 font-serif text-lg italic font-light text-foreground/80">
-                system design · clean architecture · distributed systems ·
-                observability
-              </p>
-            </div>
-          </div>
-        </div>
+                  {/* Currently exploring */}
+                  <div className="mt-8 border border-dashed border-[var(--hair-strong)] p-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                      currently exploring
+                    </p>
+                    <p className="mt-2 font-serif text-lg italic font-light text-foreground/80">
+                      system design · clean architecture · distributed systems ·
+                      observability
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );

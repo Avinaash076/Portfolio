@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, Mail, Github, Linkedin } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
-import { DarkArcBandsBackground } from "@/components/background-gradient/dark-arc-bands-background";
 
 export function Hero() {
   return (
@@ -11,8 +10,6 @@ export function Hero() {
       id="home"
       className="relative min-h-[100svh] scroll-mt-14"
     >
-      <DarkArcBandsBackground className="absolute inset-0 min-h-[100svh]" />
-
       <div className="relative mx-auto max-w-6xl px-5 pt-32 pb-16 sm:px-8 sm:pt-36">
         {/* Top meta strip */}
         <motion.div
@@ -136,11 +133,6 @@ export function Hero() {
           </motion.aside>
         </div>
 
-        {/* Bottom rule */}
-        <div className="flex items-center justify-between border-t border-[var(--hair)] pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70">
-          <span>scroll to read</span>
-          <span>01 — 07</span>
-        </div>
       </div>
     </section>
   );
