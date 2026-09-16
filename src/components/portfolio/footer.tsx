@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-[var(--hair-strong)] bg-[var(--paper-tint)]">
+    <footer className="mt-auto border-t border-[var(--hair-strong)] bg-[var(--paper-tint)]/20 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
         {/* Top: index + colophon */}
         <div className="grid gap-10 sm:grid-cols-12">

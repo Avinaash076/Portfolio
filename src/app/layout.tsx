@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interSans.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} antialiased bg-background text-foreground`}
+        className={`${interSans.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} antialiased text-foreground bg-transparent`}
       >
         <ThemeProvider
           attribute="class"

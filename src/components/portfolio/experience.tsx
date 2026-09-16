@@ -4,19 +4,22 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { experiences } from "@/lib/portfolio-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Experience() {
   return (
-    <section id="experience" className="scroll-mt-14 px-5 py-24 sm:px-8 sm:py-32">
+    <section id="experience" className="scroll-mt-14 px-5 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          num="04"
-          eyebrow="experience"
-          title="What I've shipped in production."
-          description="A track record of building, operating, and fixing real systems used by enterprise clients."
-        />
-
-        <div className="border-t border-[var(--hair-strong)]">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="experience" className="border-none">
+            <AccordionTrigger className="hover:no-underline py-0 py-8">
+              <div className="flex flex-col text-left gap-2 w-full">
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">04 — experience</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Production systems</h2>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-4 border-t border-[var(--hair-strong)]">
           {experiences.map((exp) => (
             <motion.article
               key={exp.company}
@@ -94,7 +97,10 @@ export function Experience() {
               </div>
             </motion.article>
           ))}
-        </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );

@@ -3,22 +3,25 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { skillCategories } from "@/lib/portfolio-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Skills() {
   return (
     <section
       id="skills"
-      className="scroll-mt-14 border-y border-[var(--hair)] bg-[var(--paper-tint)] px-5 py-24 sm:px-8 sm:py-32"
+      className="scroll-mt-14 border-y border-[var(--hair)] bg-[var(--paper-tint)]/50 px-5 py-12 sm:px-8 sm:py-20"
     >
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          num="03"
-          eyebrow="skills"
-          title="A T-shaped full-stack toolkit."
-          description="The languages, frameworks, databases, and tools I use across the full stack — from hardware integrations to production web services."
-        />
-
-        <div className="border-t border-[var(--hair-strong)]">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="skills" className="border-none">
+            <AccordionTrigger className="hover:no-underline py-0 py-8">
+              <div className="flex flex-col text-left gap-2 w-full">
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">03 — skills</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Toolkit & languages</h2>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-4 border-t border-[var(--hair-strong)]">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -50,7 +53,10 @@ export function Skills() {
               </div>
             </motion.div>
           ))}
-        </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );

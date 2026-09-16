@@ -3,21 +3,24 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { profile, stats } from "@/lib/portfolio-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-14 px-5 py-24 sm:px-8 sm:py-32">
+    <section id="about" className="scroll-mt-14 px-5 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          num="02"
-          eyebrow="about"
-          title="Reliable software for systems that can't lie."
-          description={profile.summary}
-        />
-
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Bio — editorial prose */}
-          <motion.div
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="about" className="border-none">
+            <AccordionTrigger className="hover:no-underline py-0 py-8">
+              <div className="flex flex-col text-left gap-2 w-full">
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">02 — about</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">System details</h2>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-4 border-t border-[var(--hair-strong)] grid gap-12 lg:grid-cols-12 lg:gap-16">
+                {/* Bio — editorial prose */}
+                <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -91,11 +94,14 @@ export function About() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+                    </table>
 
-            </div>
-          </motion.div>
-        </div>
+                  </div>
+                </motion.div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );

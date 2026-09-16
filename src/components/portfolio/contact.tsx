@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { profile } from "@/lib/portfolio-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -66,18 +67,20 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="scroll-mt-14 px-5 py-24 sm:px-8 sm:py-32">
+    <section id="contact" className="scroll-mt-14 px-5 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          num="07"
-          eyebrow="contact"
-          title="Let's build something reliable."
-          description="Have a role, a project, or an idea you want to ship? Drop me a message — I read everything and reply within a day or two."
-        />
-
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Channels — editorial list */}
-          <motion.div
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="contact" className="border-none">
+            <AccordionTrigger className="hover:no-underline py-0 py-8">
+              <div className="flex flex-col text-left gap-2 w-full">
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">07 — contact</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Let's build together</h2>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-4 border-t border-[var(--hair-strong)] grid gap-12 lg:grid-cols-12 lg:gap-16">
+                {/* Channels — editorial list */}
+                <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -241,10 +244,13 @@ export function Contact() {
                   <AlertCircle className="h-4 w-4 shrink-0 text-destructive" />
                   <p className="text-[13px] text-foreground">{errorMsg}</p>
                 </motion.div>
-              )}
-            </form>
-          </motion.div>
-        </div>
+                    )}
+                  </form>
+                </motion.div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </section>
   );
