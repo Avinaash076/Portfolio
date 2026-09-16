@@ -11,7 +11,7 @@ const SunsetBloomBackground = forwardRef<HTMLDivElement, SunsetBloomBackgroundPr
       <div
         ref={ref}
         data-slot="sunset-bloom-background"
-        className={cn("relative isolate overflow-hidden bg-[#FFFAF5] dark:bg-[#0A0B0E]", className)}
+        className={cn("relative isolate overflow-clip bg-[#FFFAF5] dark:bg-[#0A0B0E]", className)}
         {...props}
       >
         <div

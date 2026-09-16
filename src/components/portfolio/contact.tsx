@@ -67,7 +67,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="scroll-mt-14 px-5 py-12 sm:px-8 sm:py-20">
+    <section id="contact" className="scroll-mt-14 border-y border-[var(--hair)] bg-[var(--paper-tint)]/50 px-5 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="contact" className="border-none">

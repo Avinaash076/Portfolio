@@ -39,6 +39,11 @@ function AccordionTrigger({
           className
         )}
         {...props}
+        onClick={(e) => {
+          if (props.onClick) {
+            props.onClick(e);
+          }
+        }}
       >
         {children}
         <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />

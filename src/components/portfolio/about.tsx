@@ -72,7 +72,7 @@ export function About() {
               medium="Typescript, React, Node.js"
               dimensions="Full-stack Developer"
               catalogRef={`DEV.${new Date().getFullYear()}.001`}
-              curatorNote={profile.tagline}
+              curatorNote={profile.summary}
               acquisition={`Based in ${profile.location}`}
               className="mt-8 lg:mt-0"
             />
