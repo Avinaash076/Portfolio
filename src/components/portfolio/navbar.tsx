@@ -18,25 +18,9 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const sections = navSections
-      .map((s) => document.getElementById(s.id))
-      .filter(Boolean) as HTMLElement[];
-    if (sections.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
-
   const go = (id: string) => {
     setOpen(false);
+    setActive(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -58,8 +42,8 @@ export function Navbar() {
             <span className="font-serif text-lg font-medium leading-none tracking-tight">
               Avinaash<span className="text-signal">·</span>M
             </span>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-              / full-stack
+            <span className="hidden font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground sm:inline">
+              | full-stack
             </span>
           </button>
 
@@ -70,14 +54,13 @@ export function Navbar() {
                 key={s.id}
                 onClick={() => go(s.id)}
                 className={cn(
-                  "font-mono text-[11px] uppercase tracking-[0.15em] transition-colors",
+                  "font-sans text-sm uppercase tracking-[0.15em] transition-colors",
                   active === s.id
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground hover:text-foreground font-medium"
                 )}
               >
-                <span className="text-signal/80">{s.num}</span>
-                <span className="ml-1.5">{s.label}</span>
+                <span>{s.label}</span>
               </button>
             ))}
           </nav>
@@ -85,7 +68,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
-              className="hidden font-mono text-[11px] uppercase tracking-[0.15em] text-foreground underline decoration-signal decoration-2 underline-offset-4 transition-opacity hover:opacity-70 sm:block"
+              className="hidden font-sans text-sm uppercase tracking-[0.15em] text-foreground underline decoration-signal decoration-2 underline-offset-4 transition-opacity hover:opacity-70 sm:block font-medium"
               onClick={() => go("contact")}
             >
               Contact
@@ -110,11 +93,10 @@ export function Navbar() {
                 key={s.id}
                 onClick={() => go(s.id)}
                 className={cn(
-                  "flex items-center gap-3 border-b border-[var(--hair)] py-3 text-left font-mono text-xs uppercase tracking-[0.15em] last:border-b-0",
-                  active === s.id ? "text-foreground" : "text-muted-foreground"
+                  "flex items-center gap-3 border-b border-[var(--hair)] py-3 text-left font-sans text-sm uppercase tracking-[0.15em] last:border-b-0",
+                  active === s.id ? "text-foreground font-semibold" : "text-muted-foreground font-medium"
                 )}
               >
-                <span className="text-signal/80">{s.num}</span>
                 {s.label}
               </button>
             ))}

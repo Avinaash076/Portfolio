@@ -16,7 +16,7 @@ export function Skills() {
           <AccordionItem value="skills" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">03 — skills</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">Skills</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Toolkit & languages</h2>
               </div>
             </AccordionTrigger>
@@ -44,7 +44,7 @@ export function Skills() {
                   {cat.skills.map((s) => (
                     <li
                       key={s}
-                      className="font-mono text-[13px] text-foreground/75"
+                      className="text-base text-foreground/85 font-medium"
                     >
                       {s}
                     </li>

@@ -73,7 +73,7 @@ export function Contact() {
           <AccordionItem value="contact" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">07 — contact</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">Contact</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Let's build together</h2>
               </div>
             </AccordionTrigger>
@@ -88,8 +88,8 @@ export function Contact() {
             className="lg:col-span-5"
           >
             <div className="border-t border-[var(--hair-strong)]">
-              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>channels</span>
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                <span><b>Channels</b></span>
                 {/* <span>fig. 03</span> */}
               </div>
 
@@ -101,10 +101,10 @@ export function Contact() {
                       : "border-b border-[var(--hair)]"
                       } transition-colors hover:bg-[var(--paper-tint)]`}
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                    <span className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                       {c.k}
                     </span>
-                    <span className="text-right text-[14px] text-foreground/90">
+                    <span className="text-right text-base font-medium text-foreground/90">
                       {c.v}
                     </span>
                   </div>
@@ -128,11 +128,11 @@ export function Contact() {
             <div className="mt-8 border border-dashed border-[var(--hair-strong)] p-5">
               <div className="flex items-center gap-2">
                 <span className="animate-pulse-dot h-2 w-2 rounded-full bg-signal" />
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em]">
+                <p className="font-sans text-sm uppercase tracking-[0.15em]">
                   Currently available
                 </p>
               </div>
-              <p className="mt-2 text-[13px] text-muted-foreground">
+              <p className="mt-2 text-base text-muted-foreground">
                 {profile.availability}.
               </p>
             </div>
@@ -150,7 +150,7 @@ export function Contact() {
               onSubmit={onSubmit}
               className="border-t border-[var(--hair-strong)]"
             >
-              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                 <span><b>Get in touch</b></span>
                 {/* <span>fields marked * required</span> */}
               </div>
@@ -193,19 +193,19 @@ export function Contact() {
                     onChange={(e) =>
                       setForm((f) => ({ ...f, message: e.target.value }))
                     }
-                    className="w-full resize-none border-b border-[var(--hair-strong)] bg-transparent py-2 font-sans text-[15px] text-foreground placeholder:text-muted-foreground/50 focus:border-signal focus:outline-none focus:ring-0"
+                    className="w-full resize-none border-b border-[var(--hair-strong)] bg-transparent py-2 font-sans text-base text-foreground placeholder:text-muted-foreground/50 focus:border-signal focus:outline-none focus:ring-0"
                   />
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--hair)] pt-5">
-                {/* <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                {/* <p className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                   stored securely · replied within 1–2 days
                 </p> */}
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="group inline-flex items-center gap-2 bg-primary px-5 py-3 font-mono text-[11px] uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground disabled:opacity-60"
+                  className="group inline-flex items-center gap-2 bg-primary px-5 py-3 font-sans text-sm uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground disabled:opacity-60 font-medium"
                 >
                   {status === "loading" ? (
                     <>
@@ -266,7 +266,7 @@ function Label({
   return (
     <label
       htmlFor={id}
-      className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
+      className="mb-2 block font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground"
     >
       {children}
     </label>
@@ -300,7 +300,7 @@ function Field({
         value={value}
         required={required}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border-b border-[var(--hair-strong)] bg-transparent py-2 font-sans text-[15px] text-foreground placeholder:text-muted-foreground/50 focus:border-signal focus:outline-none focus:ring-0"
+        className="w-full border-b border-[var(--hair-strong)] bg-transparent py-2 font-sans text-base text-foreground placeholder:text-muted-foreground/50 focus:border-signal focus:outline-none focus:ring-0"
       />
     </div>
   );

@@ -19,7 +19,7 @@ export function Projects() {
           <AccordionItem value="projects" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">05 — projects</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">Projects</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Shipped work</h2>
               </div>
             </AccordionTrigger>
@@ -40,8 +40,8 @@ export function Projects() {
                       description={p.tagline}
                       language={p.stack[0]}
                       languageColor={p.stack[0] === 'TypeScript' || p.stack[0] === 'Kotlin' ? 'bg-blue-500' : 'bg-yellow-500'}
-                      stars={Math.floor(Math.random() * 50) + 10}
-                      forks={Math.floor(Math.random() * 10) + 2}
+                      stars={42 + i * 5}
+                      forks={8 + i}
                       className="w-full h-full"
                     />
                   </motion.div>
@@ -54,7 +54,7 @@ export function Projects() {
                     <p className="font-serif text-xl font-light">
                       Want to see more code?
                     </p>
-                    <p className="mt-1 text-[13px] text-muted-foreground">
+                    <p className="mt-1 text-base text-muted-foreground">
                       Browse every repository — experiments, side projects, and all.
                     </p>
                   </div>
@@ -62,7 +62,7 @@ export function Projects() {
                     href="https://github.com/Avinaash076"
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-2 bg-primary px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground"
+                    className="group inline-flex items-center gap-2 bg-primary px-4 py-2.5 font-sans text-sm uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground font-medium"
                   >
                     <Github className="h-3.5 w-3.5" />
                     github.com/Avinaash076

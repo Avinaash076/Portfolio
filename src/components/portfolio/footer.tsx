@@ -43,17 +43,16 @@ export function Footer() {
 
           {/* Index */}
           <div className="sm:col-span-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              index
+            <p className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+              Index
             </p>
             <ul className="mt-4 grid grid-cols-2 gap-y-1.5">
               {navSections.map((s) => (
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="group inline-flex items-baseline gap-2 font-mono text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+                    className="group inline-flex items-baseline gap-2 font-sans text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    <span className="text-signal/70">{s.num}</span>
                     {s.label}
                   </a>
                 </li>
@@ -63,16 +62,16 @@ export function Footer() {
 
           {/* Status + back to top */}
           <div className="sm:col-span-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              status
+            <p className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+              Status
             </p>
             <div className="mt-4 flex items-center gap-2">
               <span className="animate-pulse-dot h-2 w-2 rounded-full bg-signal" />
-              <p className="text-[13px] font-medium">Available for work</p>
+              <p className="text-sm font-medium">Available for work</p>
             </div>
             <a
               href="#home"
-              className="mt-5 inline-flex items-center gap-2 border-b border-[var(--hair-strong)] pb-1 font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:border-signal hover:text-foreground"
+              className="mt-5 inline-flex items-center gap-2 border-b border-[var(--hair-strong)] pb-1 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:border-signal hover:text-foreground"
             >
               Back to top
               <ArrowUp className="h-3 w-3" />
@@ -81,13 +80,13 @@ export function Footer() {
         </div>
 
         {/* Colophon */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-[var(--hair)] pt-6 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/70 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-[var(--hair)] pt-6 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground/70 sm:flex-row sm:items-center">
           <p>
             © {year} {profile.name}
           </p>
           <p className="flex items-center gap-2">
             <span className="h-1 w-1 rounded-full bg-signal" />
-            built with next.js
+            Built with Next.js
           </p>
         </div>
       </div>

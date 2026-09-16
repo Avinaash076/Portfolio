@@ -14,7 +14,7 @@ export function About() {
           <AccordionItem value="about" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">02 — about</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">About</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">System details</h2>
               </div>
             </AccordionTrigger>
@@ -38,15 +38,15 @@ export function About() {
               </p>
               <p>
                 I optimized N+1 queries using eager loading, cutting page load times by{" "}
-                <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
+                <span className="bg-signal-dim px-1 font-bold text-signal">
                   40%
                 </span>
                 . I resolved a faulty SQL query affecting{" "}
-                <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
+                <span className="bg-signal-dim px-1 font-bold text-signal">
                   220 records
                 </span>
                 , fixing and reconciling the data. I also built dedup tooling that saved{" "}
-                <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
+                <span className="bg-signal-dim px-1 font-bold text-signal">
                   10+ hours
                 </span>
                 {" "}of weekly ops work.

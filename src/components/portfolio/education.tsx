@@ -13,7 +13,7 @@ export function Education() {
           <AccordionItem value="education" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">06 — education</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">Education</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Foundations & learning</h2>
               </div>
             </AccordionTrigger>
@@ -22,8 +22,8 @@ export function Education() {
                 {/* Education */}
                 <div className="lg:col-span-7">
             <div className="border-t border-[var(--hair-strong)]">
-              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span><b>education</b></span>
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                <span><b>Education</b></span>
                 {/* <span>fig. 02</span> */}
               </div>
 
@@ -40,24 +40,24 @@ export function Education() {
                     <h3 className="font-serif text-3xl font-light tracking-tight">
                       {e.institution}
                     </h3>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal">
+                    <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal font-medium">
                       {e.period}
                     </span>
                   </div>
 
-                  <p className="mt-3 text-[15px] text-foreground/80">
+                  <p className="mt-3 text-base font-medium text-foreground/80">
                     {e.degree}
                   </p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                  <p className="mt-1 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                     {e.location}
                   </p>
 
-                  <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
+                  <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
                     {e.detail}
                   </p>
 
                   <div className="mt-6 inline-flex items-baseline gap-3 border border-[var(--hair-strong)] px-4 py-3">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    <span className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                       {e.score.label}
                     </span>
                     <span className="font-serif text-3xl font-light text-signal">
@@ -72,8 +72,8 @@ export function Education() {
           {/* Certifications */}
           <div className="lg:col-span-5">
             <div className="border-t border-[var(--hair-strong)]">
-              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span><b>certifications</b></span>
+              <div className="flex items-center justify-between border-b border-[var(--hair)] py-2 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                <span><b>Certifications</b></span>
                 {/* <span>{certifications.length} entries</span> */}
               </div>
 
@@ -87,17 +87,17 @@ export function Education() {
                   className="border-b border-[var(--hair)] py-5"
                 >
                   <div className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] text-signal">
+                    <span className="font-sans font-bold text-sm text-signal">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">
-                      <p className="text-[14px] font-medium leading-snug">
+                      <p className="text-base font-medium leading-snug">
                         {c.title}
                       </p>
-                      <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                      <p className="mt-1.5 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                         {c.issuer}
                       </p>
-                      <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground/80">
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground/80">
                         {c.focus}
                       </p>
                     </div>
@@ -108,10 +108,10 @@ export function Education() {
 
                   {/* Currently exploring */}
                   <div className="mt-8 border border-dashed border-[var(--hair-strong)] p-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      currently exploring
+                    <p className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                      Currently exploring
                     </p>
-                    <p className="mt-2 font-serif text-lg italic font-light text-foreground/80">
+                    <p className="mt-2 font-serif text-xl italic font-light text-foreground/80">
                       system design · clean architecture · distributed systems ·
                       observability
                     </p>

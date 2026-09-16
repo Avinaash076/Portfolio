@@ -20,7 +20,7 @@ export function SectionHeading({
     <div className={cn("mb-14", className)}>
       {/* Top rule + section marker */}
       <div className="rule-strong-t pt-6">
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+        <span className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
           {eyebrow}
         </span>
       </div>
@@ -41,7 +41,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, delay: 0.08, ease: "easeOut" }}
-          className="mt-5 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground"
+          className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground"
         >
           {description}
         </motion.p>

@@ -14,7 +14,7 @@ export function Experience() {
           <AccordionItem value="experience" className="border-none">
             <AccordionTrigger className="hover:no-underline py-0 py-8">
               <div className="flex flex-col text-left gap-2 w-full">
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal/80">04 — experience</span>
+                <span className="font-sans text-sm uppercase tracking-[0.15em] text-signal/80">Experience</span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight">Production systems</h2>
               </div>
             </AccordionTrigger>
@@ -31,16 +31,16 @@ export function Experience() {
             >
               {/* Marginal date + meta */}
               <div className="mb-5 sm:col-span-3 sm:mb-0">
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-signal">
+                <p className="font-sans text-sm uppercase tracking-[0.15em] text-signal font-medium">
                   {exp.period}
                 </p>
                 {exp.current && (
-                  <p className="mt-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <p className="mt-2 flex items-center gap-1.5 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                     <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
                     current
                   </p>
                 )}
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60">
+                <p className="mt-4 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground/60">
                   {exp.location}
                 </p>
               </div>
@@ -50,29 +50,29 @@ export function Experience() {
                 <h3 className="font-serif text-3xl font-light tracking-tight">
                   {exp.role}
                 </h3>
-                <p className="mt-1 font-mono text-sm text-muted-foreground">
+                <p className="mt-1 font-sans text-base text-muted-foreground font-medium">
                   {exp.company}
                 </p>
 
-                <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-foreground/80">
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground/80">
                   {exp.summary}
                 </p>
 
                 {/* Highlights as a real list */}
-                <ol className="mt-6 space-y-3">
+                <ol className="mt-6 space-y-4">
                   {exp.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="grid grid-cols-[auto_1fr] gap-3 text-[14px] leading-relaxed"
+                      className="grid grid-cols-[auto_1fr] gap-3 text-base leading-relaxed"
                     >
-                      <span className="font-mono text-[11px] text-signal/80 pt-0.5">
+                      <span className="font-sans font-bold text-sm text-signal/80 pt-1">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
                         <p className="text-foreground/90">
-                          <span className="font-medium">{h.title}</span>
+                          <span className="font-semibold">{h.title}</span>
                           {h.metric && (
-                            <span className="ml-2 bg-signal-dim px-1.5 py-0.5 font-mono text-[11px] text-signal">
+                            <span className="ml-2 bg-signal-dim px-2 py-0.5 font-bold text-sm text-signal rounded">
                               {h.metric}
                             </span>
                           )}
@@ -87,10 +87,10 @@ export function Experience() {
 
                 {/* Stack inline */}
                 <div className="mt-7 border-t border-[var(--hair)] pt-4">
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    stack
+                  <p className="mb-2 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                    Stack
                   </p>
-                  <p className="font-mono text-[12px] text-foreground/70">
+                  <p className="font-sans text-base text-foreground/80 font-medium">
                     {exp.stack.join("  ·  ")}
                   </p>
                 </div>

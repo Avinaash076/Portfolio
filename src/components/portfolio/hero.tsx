@@ -16,7 +16,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-end border-b border-[var(--hair)] pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
+          className="flex items-center justify-end border-b border-[var(--hair)] pb-3 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground"
         >
           <span className="flex items-center gap-2">
             <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
@@ -32,9 +32,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-6 font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground"
+              className="mb-6 font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground"
             >
-              {"// full-stack developer · 1+ yr in production"}
+              {"Full-stack developer · 1+ yr in production"}
             </motion.div>
 
             <motion.h1
@@ -53,7 +53,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-8 max-w-xl font-serif text-xl font-light leading-relaxed text-foreground/85 italic sm:text-2xl"
+              className="mt-8 max-w-xl font-serif text-2xl font-light leading-relaxed text-foreground/85 italic sm:text-3xl"
             >
               I build reliable web services and enterprise tools that scale.
             </motion.p>
@@ -62,7 +62,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.22 }}
-              className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground"
+              className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground"
             >
               Based in Bengaluru. Recently built a machine-telemetry dashboard
               cutting page-load times by 40% and automating 10+ hours of ops work weekly.
@@ -76,7 +76,7 @@ export function Hero() {
             >
               <a
                 href="#work"
-                className="group inline-flex items-center gap-2 bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground"
+                className="group inline-flex items-center gap-2 bg-primary px-5 py-3 font-sans text-sm uppercase tracking-[0.15em] text-primary-foreground transition-colors hover:bg-foreground"
               >
                 See the work
                 <ArrowDownRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -85,7 +85,7 @@ export function Hero() {
                 href={profile.resumePath}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-xs uppercase tracking-[0.15em] underline decoration-[var(--hair-strong)] underline-offset-4 transition-colors hover:decoration-signal"
+                className="font-sans text-sm uppercase tracking-[0.15em] underline decoration-[var(--hair-strong)] underline-offset-4 transition-colors hover:decoration-signal"
               >
                 Download résumé ↓
               </a>
@@ -99,7 +99,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-12 border-t border-[var(--hair)] pt-8 lg:col-span-4 lg:mt-0 lg:border-l lg:border-t-0 lg:border-l-[var(--hair)] lg:pl-8 lg:pt-0"
           >
-            <dl className="font-mono text-[11px] uppercase tracking-[0.12em]">
+            <dl className="font-sans text-sm uppercase tracking-[0.15em]">
               <Row k="Role" v="Full-Stack Developer" />
               <Row k="Based" v={profile.location} />
               <Row k="Open to" v="Bengaluru / Remote" />
@@ -115,7 +115,7 @@ export function Hero() {
             </dl>
 
             <div className="mt-8 flex items-center gap-4 border-t border-[var(--hair)] pt-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="font-sans text-sm uppercase tracking-[0.15em] text-muted-foreground">
                 find me
               </span>
               <div className="flex items-center gap-3">
