@@ -1,0 +1,5 @@
+1. **Explore opensourceui.in for components to use.** The user specifically mentioned the "Arc Bands background gradient" for their portfolio. Based on checking the opensourceui.in source, we can pull in `ArcBandsBackground` and/or `DarkArcBandsBackground` to give it a more personalized touch.
+2. **Review and refine typography.** The user mentioned the current site feels like "generic ai slop" and the font style looks "ai made". We will adjust the font settings in `src/app/layout.tsx` to include more human, elegant serif or sans-serif fonts, or replace them entirely with fonts available from standard sources or Google Fonts that give a better personal touch.
+3. **Make the layout and content more concise.** The user stated "for recuriter also it is too long". We will review `src/components/portfolio/*.tsx` files and make sections shorter and more punchy.
+4. **Smooth out navigation.** Ensure smooth scrolling between sections and perhaps optimize the navbar.
+5. **Pre commit step.** Run checks.

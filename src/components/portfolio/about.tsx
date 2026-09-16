@@ -30,35 +30,25 @@ export function About() {
                 maintainable enterprise software.
               </p>
               <p>
-                I work end-to-end: device signals in, REST services in the
-                middle, dashboards out the front. At Innovascape LLP I built
-                and operate a real-time industrial monitoring platform used by
-                enterprise clients — wiring ESP32/Arduino telemetry into
-                application workflows and rendering it through a unified web
-                dashboard.
+                I work end-to-end: device signals in, REST services in the middle, and dashboards out front. Recently, I built a real-time industrial monitoring platform for enterprise clients. I wired ESP32/Arduino telemetry into workflows, rendering live data through a unified dashboard.
               </p>
               <p>
-                Refactored N+1 queries with eager loading and batched joins,
-                cutting reporting-page load times by{" "}
+                I optimized N+1 queries using eager loading, cutting page load times by{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
                   40%
                 </span>
-                . Tracked down a faulty SQL query that had silently written{" "}
+                . I resolved a faulty SQL query affecting{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
-                  220 incorrect records
+                  220 records
                 </span>
-                {" "}into production — deployed the fix and reconciled every one of them.
-                Built bulk-import and dedup tooling that eliminated{" "}
+                , fixing and reconciling the data. I also built dedup tooling that saved{" "}
                 <span className="bg-signal-dim px-1 font-mono text-[0.85em] text-signal">
                   10+ hours
                 </span>
-                {" "}of manual ops work each week.
+                {" "}of weekly ops work.
               </p>
               <p className="text-muted-foreground">
-                Strong interest in clean testing practices, API validation, RBAC,
-                secure sessions, and production debugging — the parts of
-                software engineering that decide whether a system survives
-                contact with real users.
+                I focus on API validation, clean testing, RBAC, and secure sessions — the parts that ensure a system survives contact with real users.
               </p>
             </div>
           </motion.div>

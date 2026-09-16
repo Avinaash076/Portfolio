@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/portfolio/theme-provider";
 
-const geistSans = Geist({
+const interSans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
+const playfairDisplay = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
   style: ["normal", "italic"],
 });
 
@@ -58,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
+        className={`${interSans.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
