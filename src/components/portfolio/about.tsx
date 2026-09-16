@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./section-heading";
 import { profile, stats } from "@/lib/portfolio-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { MuseumPlacardCard } from "@/components/gallery/museum-placard-card";
 
 export function About() {
   return (
@@ -56,48 +57,26 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Spec sheet — data table, not floating cards */}
+          {/* Museum Placard */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 flex justify-center items-center"
           >
-            <div className="border-t border-[var(--hair-strong)]">
-
-              <table className="w-full">
-                <tbody>
-                  {stats.map((s, i) => (
-                    <tr
-                      key={s.label}
-                      className="border-b border-[var(--hair)] transition-colors hover:bg-[var(--paper-tint)]"
-                    >
-                      <td className="py-5 align-top">
-                        <div className="flex items-baseline gap-1">
-                          <span className="font-serif text-4xl font-light leading-none">
-                            {s.value}
-                          </span>
-                          <span className="font-mono text-sm text-signal">
-                            {s.suffix}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="py-5 pl-4 align-top text-right">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                          {s.unit}
-                        </div>
-                        <div className="mt-1 text-[13px] leading-tight text-foreground/80">
-                          {s.label}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-                    </table>
-
-                  </div>
-                </motion.div>
+            <MuseumPlacardCard
+              artist={profile.name}
+              title={profile.role}
+              year={new Date().getFullYear().toString()}
+              medium="Typescript, React, Node.js"
+              dimensions="Full-stack Developer"
+              catalogRef={`DEV.${new Date().getFullYear()}.001`}
+              curatorNote={profile.tagline}
+              acquisition={`Based in ${profile.location}`}
+              className="mt-8 lg:mt-0"
+            />
+          </motion.div>
               </div>
             </AccordionContent>
           </AccordionItem>
